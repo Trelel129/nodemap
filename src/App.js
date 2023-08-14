@@ -17,6 +17,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick="draw_tile">Click Me</button>
       </header>
     </div>
   );
