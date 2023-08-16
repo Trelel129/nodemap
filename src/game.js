@@ -8,29 +8,29 @@ const TILE_HEIGHT = 50;
 const MAX_HEIGHT = 100;
 
 let cat =[];
-// let x = 0;
-// let y = 0;
-// let mouseX = 0;
-// let mouseY = 0;
-// let tileX = 0;
-// let tileY = 0;
-// let width = 0;
-// let height = 0;
-// let floor = 0;
-// let first = false;
-// let keyCode = 0;
-// let UP_ARROW = 38;
-// let DOWN_ARROW = 40;
-// let LEFT_ARROW = 37;
-// let RIGHT_ARROW = 39;
-// let SPACE = 32;
-// let saveJSON
-// let image
-// let createCanvas
-// let windowHeight
-// let windowWidth
-// let background
-// let loadImage
+let x = 0;
+let y = 0;
+let mouseX = 0;
+let mouseY = 0;
+let tileX = 0;
+let tileY = 0;
+let width = 0;
+let height = 0;
+let floor = 0;
+let first = false;
+let keyCode = 0;
+let UP_ARROW = 38;
+let DOWN_ARROW = 40;
+let LEFT_ARROW = 37;
+let RIGHT_ARROW = 39;
+let SPACE = 32;
+let saveJSON
+let image
+let createCanvas
+let windowHeight
+let windowWidth
+let background
+let loadImage
 
 let url = window.location.href;
 let url2 = "map.json";
@@ -90,21 +90,21 @@ let grid = [
 
 for(x = 0; x < GRID_SIZE-1; x++) {//vertical roads
   for(y = 0; y < GRID_SIZE-1; y++) {
-    if(grid[x][y] == grid[x+1][y] && grid [x][y] == 33) {
+    if(grid[x][y] === grid[x+1][y] && grid[x][y] === 33) {
       grid[x][y] = 34;
     }
   }
 }
 for(x = 0; x < GRID_SIZE-1; x++) { // x juctions roads
   for(y = 0; y < GRID_SIZE-1; y++) {
-    if((grid[x][y+1] == 34 || grid[x][y+1] == 33 || grid[x][y+1] == 32 || grid[x][y+1] == 31 || grid[x][y+1] == 25 || grid[x][y+1] == 27 || grid[x][y+1] == 28 || grid[x][y+1] == 24) && //up
-    (grid[x+1][y] == 29|| grid[x+1][y]==32 || grid[x+1][y] ==33 || grid[x+1][y] == 34 || grid[x+1][y] == 25 || grid[x+1][y] == 26 || grid[x+1][y] == 28 || grid[x+1][y] == 24) && //left
-    (grid[x+1][y+2] == 34 || grid[x+1][y+2] == 33 || grid[x+1][y+2] == 30 || grid[x+1][y+2] == 31 || grid[x+1][y+2] == 26 || grid[x+1][y+2] == 27 || grid[x+1][y+2] == 28 || grid[x+1][y+2] == 24) && //right
-    (grid[x+2][y+1] == 34 || grid[x+2][y+1] == 33 || grid[x+2][y+1] == 30 || grid[x+2][y+1] == 29 || grid[x+2][y+1] == 25 || grid[x+2][y+1] == 26 || grid[x+2][y+1] == 27 || grid[x+2][y+1] == 24) //down
+    if((grid[x][y+1] === 34 || grid[x][y+1] === 33 || grid[x][y+1] === 32 || grid[x][y+1] === 31 || grid[x][y+1] === 25 || grid[x][y+1] === 27 || grid[x][y+1] === 28 || grid[x][y+1] === 24) && //up
+    (grid[x+1][y] === 29|| grid[x+1][y]===32 || grid[x+1][y] ===33 || grid[x+1][y] === 34 || grid[x+1][y] === 25 || grid[x+1][y] === 26 || grid[x+1][y] === 28 || grid[x+1][y] === 24) && //left
+    (grid[x+1][y+2] === 34 || grid[x+1][y+2] === 33 || grid[x+1][y+2] === 30 || grid[x+1][y+2] === 31 || grid[x+1][y+2] === 26 || grid[x+1][y+2] === 27 || grid[x+1][y+2] === 28 || grid[x+1][y+2] === 24) && //right
+    (grid[x+2][y+1] === 34 || grid[x+2][y+1] === 33 || grid[x+2][y+1] === 30 || grid[x+2][y+1] === 29 || grid[x+2][y+1] === 25 || grid[x+2][y+1] === 26 || grid[x+2][y+1] === 27 || grid[x+2][y+1] === 24) //down
     &&
-    ( grid[x+1][y+1] == 25 || grid[x+1][y+1] == 26 || grid[x+1][y+1] == 27 || grid[x+1][y+1] == 28 ||
-      grid[x+1][y+1] == 29 || grid[x+1][y+1] == 30 || grid[x+1][y+1] == 31 || grid[x+1][y+1] == 32 || grid[x+1][y+1] == 33 || 
-      grid[x+1][y+1] == 34 || grid[x+1][y+1] == 35 || grid[x+1][y+1] == 36))//middle
+    ( grid[x+1][y+1] === 25 || grid[x+1][y+1] === 26 || grid[x+1][y+1] === 27 || grid[x+1][y+1] === 28 ||
+      grid[x+1][y+1] === 29 || grid[x+1][y+1] === 30 || grid[x+1][y+1] === 31 || grid[x+1][y+1] === 32 || grid[x+1][y+1] === 33 || 
+      grid[x+1][y+1] === 34 || grid[x+1][y+1] === 35 || grid[x+1][y+1] === 36))//middle
     {
       grid[x+1][y+1] = 24;  
     }
@@ -112,13 +112,13 @@ for(x = 0; x < GRID_SIZE-1; x++) { // x juctions roads
 }
 for(x = 0; x < GRID_SIZE-1; x++) { // T juctions up roads
   for(y = 0; y < GRID_SIZE-1; y++) {
-    if((grid[x+1][y] == 29|| grid[x+1][y]==32 || grid[x+1][y] ==33 || grid[x+1][y] == 34 || grid[x+1][y] == 25 || grid[x+1][y] == 26 || grid[x+1][y] == 28 || grid[x+1][y] == 24) && //left
-    (grid[x][y+1] == 34 || grid[x][y+1] == 33 || grid[x][y+1] == 32 || grid[x][y+1] == 31 || grid[x][y+1] == 25 || grid[x][y+1] == 27 || grid[x][y+1] == 28 || grid[x][y+1] == 24) && //up
-    (grid[x+1][y+2] == 34 || grid[x+1][y+2] == 33 || grid[x+1][y+2] == 30 || grid[x+1][y+2] == 31 || grid[x+1][y+2] == 26 || grid[x+1][y+2] == 27 || grid[x+1][y+2] == 28 || grid[x+1][y+2] == 24) //right
+    if((grid[x+1][y] === 29|| grid[x+1][y]===32 || grid[x+1][y] ===33 || grid[x+1][y] === 34 || grid[x+1][y] === 25 || grid[x+1][y] === 26 || grid[x+1][y] === 28 || grid[x+1][y] === 24) && //left
+    (grid[x][y+1] === 34 || grid[x][y+1] === 33 || grid[x][y+1] === 32 || grid[x][y+1] === 31 || grid[x][y+1] === 25 || grid[x][y+1] === 27 || grid[x][y+1] === 28 || grid[x][y+1] === 24) && //up
+    (grid[x+1][y+2] === 34 || grid[x+1][y+2] === 33 || grid[x+1][y+2] === 30 || grid[x+1][y+2] === 31 || grid[x+1][y+2] === 26 || grid[x+1][y+2] === 27 || grid[x+1][y+2] === 28 || grid[x+1][y+2] === 24) //right
     &&
-    ( grid[x+1][y+1] == 25 || grid[x+1][y+1] == 27 || grid[x+1][y+1] == 28 ||
-      grid[x+1][y+1] == 29 || grid[x+1][y+1] == 30 || grid[x+1][y+1] == 31 || grid[x+1][y+1] == 32 || grid[x+1][y+1] == 33 || 
-      grid[x+1][y+1] == 34 || grid[x+1][y+1] == 35 || grid[x+1][y+1] == 36))//middle
+    ( grid[x+1][y+1] === 25 || grid[x+1][y+1] === 27 || grid[x+1][y+1] === 28 ||
+      grid[x+1][y+1] === 29 || grid[x+1][y+1] === 30 || grid[x+1][y+1] === 31 || grid[x+1][y+1] === 32 || grid[x+1][y+1] === 33 || 
+      grid[x+1][y+1] === 34 || grid[x+1][y+1] === 35 || grid[x+1][y+1] === 36))//middle
     {
       grid[x+1][y+1] = 26;  
     }
@@ -126,13 +126,13 @@ for(x = 0; x < GRID_SIZE-1; x++) { // T juctions up roads
 }
 for(x = 0; x < GRID_SIZE-1; x++) { // T juctions down roads
   for(y = 0; y < GRID_SIZE-1; y++) {
-    if((grid[x+1][y] == 24 || grid[x+1][y] == 25 || grid[x+1][y] == 26 || grid[x+1][y] == 28 || grid[x+1][y] == 29 || grid[x+1][y] == 32 || grid[x+1][y] == 33 || grid[x+1][y] == 34) && //left
-    (grid[x+1][y+2] == 24 || grid[x+1][y+2] == 26 || grid[x+1][y+2] == 27 || grid[x+1][y+2] == 28 || grid[x+1][y+2] == 30 || grid[x+1][y+2] == 31 || grid[x+1][y+2] == 33 || grid[x+1][y+2] == 34) && //right
-    (grid[x+2][y+1] == 24 || grid[x+2][y+1] == 25 || grid[x+2][y+1] == 26 || grid[x+2][y+1] == 27 || grid[x+2][y+1] == 29 || grid[x+2][y+1] == 30 || grid[x+2][y+1] == 33 || grid[x+2][y+1] == 34) //down
+    if((grid[x+1][y] === 24 || grid[x+1][y] === 25 || grid[x+1][y] === 26 || grid[x+1][y] === 28 || grid[x+1][y] === 29 || grid[x+1][y] === 32 || grid[x+1][y] === 33 || grid[x+1][y] === 34) && //left
+    (grid[x+1][y+2] === 24 || grid[x+1][y+2] === 26 || grid[x+1][y+2] === 27 || grid[x+1][y+2] === 28 || grid[x+1][y+2] === 30 || grid[x+1][y+2] === 31 || grid[x+1][y+2] === 33 || grid[x+1][y+2] === 34) && //right
+    (grid[x+2][y+1] === 24 || grid[x+2][y+1] === 25 || grid[x+2][y+1] === 26 || grid[x+2][y+1] === 27 || grid[x+2][y+1] === 29 || grid[x+2][y+1] === 30 || grid[x+2][y+1] === 33 || grid[x+2][y+1] === 34) //down
     &&
-    ( grid[x+1][y+1] == 25 || grid[x+1][y+1] == 26 || grid[x+1][y+1] == 27 ||
-      grid[x+1][y+1] == 29 || grid[x+1][y+1] == 30 || grid[x+1][y+1] == 31 || grid[x+1][y+1] == 32 || grid[x+1][y+1] == 33 || 
-      grid[x+1][y+1] == 34 || grid[x+1][y+1] == 35 || grid[x+1][y+1] == 36))//middle
+    ( grid[x+1][y+1] === 25 || grid[x+1][y+1] === 26 || grid[x+1][y+1] === 27 ||
+      grid[x+1][y+1] === 29 || grid[x+1][y+1] === 30 || grid[x+1][y+1] === 31 || grid[x+1][y+1] === 32 || grid[x+1][y+1] === 33 || 
+      grid[x+1][y+1] === 34 || grid[x+1][y+1] === 35 || grid[x+1][y+1] === 36))//middle
     {
       grid[x+1][y+1] = 28;
     }
@@ -140,13 +140,13 @@ for(x = 0; x < GRID_SIZE-1; x++) { // T juctions down roads
 }
 for(x = 0; x < GRID_SIZE-1; x++) { // T juctions left roads
   for(y = 0; y < GRID_SIZE-1; y++) {
-    if((grid[x+1][y] == 29|| grid[x+1][y]==32 || grid[x+1][y] ==33 || grid[x+1][y] == 34 || grid[x+1][y] == 25 || grid[x+1][y] == 26 || grid[x+1][y] == 28 || grid[x+1][y] == 24) && //left
-    (grid[x][y+1] == 34 || grid[x][y+1] == 33 || grid[x][y+1] == 32 || grid[x][y+1] == 31 || grid[x][y+1] == 25 || grid[x][y+1] == 27 || grid[x][y+1] == 28 || grid[x][y+1] == 24) && //up
-    (grid[x+2][y+1] == 34 || grid[x+2][y+1] == 33 || grid[x+2][y+1] == 30 || grid[x+2][y+1] == 29 || grid[x+2][y+1] == 25 || grid[x+2][y+1] == 26 || grid[x+2][y+1] == 27 || grid[x+2][y+1] == 24) //down
+    if((grid[x+1][y] === 29|| grid[x+1][y]===32 || grid[x+1][y] ===33 || grid[x+1][y] === 34 || grid[x+1][y] === 25 || grid[x+1][y] === 26 || grid[x+1][y] === 28 || grid[x+1][y] === 24) && //left
+    (grid[x][y+1] === 34 || grid[x][y+1] === 33 || grid[x][y+1] === 32 || grid[x][y+1] === 31 || grid[x][y+1] === 25 || grid[x][y+1] === 27 || grid[x][y+1] === 28 || grid[x][y+1] === 24) && //up
+    (grid[x+2][y+1] === 34 || grid[x+2][y+1] === 33 || grid[x+2][y+1] === 30 || grid[x+2][y+1] === 29 || grid[x+2][y+1] === 25 || grid[x+2][y+1] === 26 || grid[x+2][y+1] === 27 || grid[x+2][y+1] === 24) //down
     &&
-    ( grid[x+1][y+1] == 25 || grid[x+1][y+1] == 26 || grid[x+1][y+1] == 28 ||
-      grid[x+1][y+1] == 29 || grid[x+1][y+1] == 30 || grid[x+1][y+1] == 31 || grid[x+1][y+1] == 32 || grid[x+1][y+1] == 33 || 
-      grid[x+1][y+1] == 34 || grid[x+1][y+1] == 35 || grid[x+1][y+1] == 36))//middle
+    ( grid[x+1][y+1] === 25 || grid[x+1][y+1] === 26 || grid[x+1][y+1] === 28 ||
+      grid[x+1][y+1] === 29 || grid[x+1][y+1] === 30 || grid[x+1][y+1] === 31 || grid[x+1][y+1] === 32 || grid[x+1][y+1] === 33 || 
+      grid[x+1][y+1] === 34 || grid[x+1][y+1] === 35 || grid[x+1][y+1] === 36))//middle
     {
       grid[x+1][y+1] = 27;  
     }
@@ -154,13 +154,13 @@ for(x = 0; x < GRID_SIZE-1; x++) { // T juctions left roads
 }
 for(x = 0; x < GRID_SIZE-1; x++) { // T juctions right roads
   for(y = 0; y < GRID_SIZE-1; y++) {
-    if((grid[x][y+1] == 34 || grid[x][y+1] == 33 || grid[x][y+1] == 32 || grid[x][y+1] == 31 || grid[x][y+1] == 25 || grid[x][y+1] == 27 || grid[x][y+1] == 28 || grid[x][y+1] == 24) && //up
-    (grid[x+1][y+2] == 34 || grid[x+1][y+2] == 33 || grid[x+1][y+2] == 30 || grid[x+1][y+2] == 31 || grid[x+1][y+2] == 26 || grid[x+1][y+2] == 27 || grid[x+1][y+2] == 28 || grid[x+1][y+2] == 24) && //right
-    (grid[x+2][y+1] == 34 || grid[x+2][y+1] == 33 || grid[x+2][y+1] == 30 || grid[x+2][y+1] == 29 || grid[x+2][y+1] == 25 || grid[x+2][y+1] == 26 || grid[x+2][y+1] == 27 || grid[x+2][y+1] == 24) //down
+    if((grid[x][y+1] === 34 || grid[x][y+1] === 33 || grid[x][y+1] === 32 || grid[x][y+1] === 31 || grid[x][y+1] === 25 || grid[x][y+1] === 27 || grid[x][y+1] === 28 || grid[x][y+1] === 24) && //up
+    (grid[x+1][y+2] === 34 || grid[x+1][y+2] === 33 || grid[x+1][y+2] === 30 || grid[x+1][y+2] === 31 || grid[x+1][y+2] === 26 || grid[x+1][y+2] === 27 || grid[x+1][y+2] === 28 || grid[x+1][y+2] === 24) && //right
+    (grid[x+2][y+1] === 34 || grid[x+2][y+1] === 33 || grid[x+2][y+1] === 30 || grid[x+2][y+1] === 29 || grid[x+2][y+1] === 25 || grid[x+2][y+1] === 26 || grid[x+2][y+1] === 27 || grid[x+2][y+1] === 24) //down
     &&
-    ( grid[x+1][y+1] == 26 || grid[x+1][y+1] == 27 || grid[x+1][y+1] == 28 ||
-      grid[x+1][y+1] == 29 || grid[x+1][y+1] == 30 || grid[x+1][y+1] == 31 || grid[x+1][y+1] == 32 || grid[x+1][y+1] == 33 || 
-      grid[x+1][y+1] == 34 || grid[x+1][y+1] == 35 || grid[x+1][y+1] == 36))//middle
+    ( grid[x+1][y+1] === 26 || grid[x+1][y+1] === 27 || grid[x+1][y+1] === 28 ||
+      grid[x+1][y+1] === 29 || grid[x+1][y+1] === 30 || grid[x+1][y+1] === 31 || grid[x+1][y+1] === 32 || grid[x+1][y+1] === 33 || 
+      grid[x+1][y+1] === 34 || grid[x+1][y+1] === 35 || grid[x+1][y+1] === 36))//middle
     {
       grid[x+1][y+1] = 25;  
     }
@@ -168,36 +168,36 @@ for(x = 0; x < GRID_SIZE-1; x++) { // T juctions right roads
 }
 for(x = 0; x < GRID_SIZE-1; x++) { // ↱ roads
   for(y = 0; y < GRID_SIZE-1; y++) {
-    if((grid[x+1][y] == 34 || grid[x+1][y] == 33 || grid[x+1][y] == 30 || grid[x+1][y] == 29 || grid[x+1][y] == 25 || grid[x+1][y] == 26 || grid[x+1][y] == 27 || grid[x+1][y] == 24)&& // down
-    (grid[x][y+1] == 34 || grid[x][y+1] == 33 || grid[x][y+1] == 30 || grid[x][y+1] == 31 || grid[x][y+1] == 26 || grid[x][y+1] == 27 || grid[x][y+1] == 28 || grid[x][y+1] == 24) && //right
-    (grid[x][y] == 34 || grid[x][y] == 33)) {
+    if((grid[x+1][y] === 34 || grid[x+1][y] === 33 || grid[x+1][y] === 30 || grid[x+1][y] === 29 || grid[x+1][y] === 25 || grid[x+1][y] === 26 || grid[x+1][y] === 27 || grid[x+1][y] === 24)&& // down
+    (grid[x][y+1] === 34 || grid[x][y+1] === 33 || grid[x][y+1] === 30 || grid[x][y+1] === 31 || grid[x][y+1] === 26 || grid[x][y+1] === 27 || grid[x][y+1] === 28 || grid[x][y+1] === 24) && //right
+    (grid[x][y] === 34 || grid[x][y] === 33)) {
       grid[x][y] = 32;
     }
   }
 }
 for(x = 0; x < GRID_SIZE-1; x++) { // ↰ roads
   for(y = 0; y < GRID_SIZE-1; y++) {
-    if((grid[x][y] == 29 || grid[x][y] == 32 || grid[x][y] == 33 || grid[x][y] == 34 || grid[x][y] == 25 || grid[x][y] == 26 || grid[x][y] == 28 || grid[x][y] == 24)&& //left
-      (grid[x+1][y+1] == 34 || grid[x+1][y+1] == 33 || grid[x+1][y+1] == 30 || grid[x+1][y+1] == 29 || grid[x+1][y+1] == 25 || grid[x+1][y+1] == 26 || grid[x+1][y+1] == 27 || grid[x+1][y+1] == 24)&&  //down
-      (grid[x][y+1] == 33 || grid[x][y+1] == 34)) {
+    if((grid[x][y] === 29 || grid[x][y] === 32 || grid[x][y] === 33 || grid[x][y] === 34 || grid[x][y] === 25 || grid[x][y] === 26 || grid[x][y] === 28 || grid[x][y] === 24)&& //left
+      (grid[x+1][y+1] === 34 || grid[x+1][y+1] === 33 || grid[x+1][y+1] === 30 || grid[x+1][y+1] === 29 || grid[x+1][y+1] === 25 || grid[x+1][y+1] === 26 || grid[x+1][y+1] === 27 || grid[x+1][y+1] === 24)&&  //down
+      (grid[x][y+1] === 33 || grid[x][y+1] === 34)) {
       grid[x][y+1] = 31;
     }
   }
 }
 for(x = 0; x < GRID_SIZE-1; x++) { // ↲ roads
   for(y = 0; y < GRID_SIZE-1; y++) {
-    if((grid[x][y] == 29 || grid[x][y] == 32 || grid[x][y] == 33 || grid[x][y] == 34 || grid[x][y] == 25 || grid[x][y] == 26 || grid[x][y] == 28 || grid[x][y] == 24)&& //left
-      (grid[x-1][y+1] == 34 || grid[x-1][y+1] == 33 || grid[x-1][y+1] == 32 || grid[x-1][y+1] == 31 || grid[x-1][y+1] == 25 || grid[x-1][y+1] == 27 || grid[x-1][y+1] == 28 || grid[x-1][y+1] == 24)&& //up
-      (grid[x][y+1] == 33 || grid[x][y+1] == 34)) {
+    if((grid[x][y] === 29 || grid[x][y] === 32 || grid[x][y] === 33 || grid[x][y] === 34 || grid[x][y] === 25 || grid[x][y] === 26 || grid[x][y] === 28 || grid[x][y] === 24)&& //left
+      (grid[x-1][y+1] === 34 || grid[x-1][y+1] === 33 || grid[x-1][y+1] === 32 || grid[x-1][y+1] === 31 || grid[x-1][y+1] === 25 || grid[x-1][y+1] === 27 || grid[x-1][y+1] === 28 || grid[x-1][y+1] === 24)&& //up
+      (grid[x][y+1] === 33 || grid[x][y+1] === 34)) {
       grid[x][y+1] = 30;
     }
   }
 }
 for(x = 0; x < GRID_SIZE-1; x++) { // ↳ roads
   for(y = 0; y < GRID_SIZE-1; y++) {
-    if((grid[x][y+1] == 33 || grid[x][y+1] == 34 || grid[x][y+1] == 30 || grid[x][y+1] == 31 || grid[x][y+1] == 26 || grid[x][y+1] == 27 || grid[x][y+1] == 28 || grid[x][y+1] == 24)&& 
-      (grid[x-1][y] == 34  || grid[x-1][y] == 33  || grid[x-1][y] == 32  || grid[x-1][y] == 31  || grid[x-1][y] == 25  || grid[x-1][y] == 27  || grid[x-1][y] == 28  || grid[x-1][y] == 24)&& 
-      (grid[x][y] == 33 || grid[x][y] == 34)){
+    if((grid[x][y+1] === 33 || grid[x][y+1] === 34 || grid[x][y+1] === 30 || grid[x][y+1] === 31 || grid[x][y+1] === 26 || grid[x][y+1] === 27 || grid[x][y+1] === 28 || grid[x][y+1] === 24)&& 
+      (grid[x-1][y] === 34  || grid[x-1][y] === 33  || grid[x-1][y] === 32  || grid[x-1][y] === 31  || grid[x-1][y] === 25  || grid[x-1][y] === 27  || grid[x-1][y] === 28  || grid[x-1][y] === 24)&& 
+      (grid[x][y] === 33 || grid[x][y] === 34)){
       grid[x][y] = 29;
     }
   }
@@ -216,14 +216,14 @@ let cursor = {
 let tile = 0;
 
 //change grid if there's cursor
-function pointGrid() {
+export function pointGrid() {
   grid[10][10] = grid[cursor.x][cursor.y];
   
   grid[cursor.x][cursor.y] = 0;
   // categorizer();
 }
 //restore grid
-function restoreGrid() {
+export function restoreGrid() {
   grid[cursor.x][cursor.y] = grid[10][10];
   grid[10][10] = 0;
 }
@@ -234,8 +234,8 @@ function changeTile(tile) {
 
 //move cursor
 let opt = false;
-function moveCursor(x, y) {
-  if (cursor.x + x >= 0 && cursor.x + x < GRID_SIZE && cursor.y + y >= 0 && cursor.y + y < GRID_SIZE && opt == false) {
+export function moveCursor(x, y) {
+  if (cursor.x + x >= 0 && cursor.x + x < GRID_SIZE && cursor.y + y >= 0 && cursor.y + y < GRID_SIZE && opt === false) {
     
     cursor.x += x;
     cursor.y += y;
@@ -251,7 +251,7 @@ function moveCursor(x, y) {
 //   grid2[3][0] = grid[3][0];
 // }
 
-function mousePressed() {
+export function mousePressed() {
   if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
     let x = floor((mouseY - y_start) / TILE_HEIGHT - (mouseX - x_start) / TILE_WIDTH);
     let y = floor((mouseX - x_start) / TILE_WIDTH + (mouseY - y_start) / TILE_HEIGHT) -1;
@@ -260,8 +260,8 @@ function mousePressed() {
     }
   }
 }
-function switchOpt() {
-  if (opt == false) {
+export function switchOpt() {
+  if (opt === false) {
     opt = true;
   } else {
     opt = false;
@@ -269,67 +269,67 @@ function switchOpt() {
 }
 
 //keyboard input
-first = true;
-function keyReleased() {
-  if (keyCode === UP_ARROW && opt == false && first == true) {
+export function keyReleased() {
+  first = true;
+  if (keyCode === UP_ARROW && opt === false && first === true) {
     moveCursor(-1, 0);
     first = false;
-  } else if (keyCode === DOWN_ARROW && opt == false && first == true) {
+  } else if (keyCode === DOWN_ARROW && opt === false && first === true) {
     moveCursor(1, 0);
     first = false;
-  } else if (keyCode === LEFT_ARROW && opt == false && first == true) {
+  } else if (keyCode === LEFT_ARROW && opt === false && first === true) {
     moveCursor(0, -1);
     first = false;
-  } else if (keyCode === RIGHT_ARROW && opt == false && first == true) {
+  } else if (keyCode === RIGHT_ARROW && opt === false && first === true) {
     moveCursor(0, 1);
     first = false;
-  } else if (keyCode === UP_ARROW && opt == false && first == false) {
+  } else if (keyCode === UP_ARROW && opt === false && first === false) {
     restoreGrid();
     moveCursor(-1, 0);
-  } else if (keyCode === DOWN_ARROW && opt == false && first == false) {
+  } else if (keyCode === DOWN_ARROW && opt === false && first === false) {
     restoreGrid();
     moveCursor(1, 0);
-  } else if (keyCode === LEFT_ARROW && opt == false && first == false) {
+  } else if (keyCode === LEFT_ARROW && opt === false && first === false) {
     restoreGrid();
     moveCursor(0, -1);
-  } else if (keyCode === RIGHT_ARROW && opt == false && first == false) {
+  } else if (keyCode === RIGHT_ARROW && opt === false && first === false) {
     restoreGrid();
     moveCursor(0, 1);
   } //space
-  else if (keyCode === 32 && opt == false) {
+  else if (keyCode === 32 && opt === false) {
     first = true;
     switchOpt();
     grid[11][11] = grid[10][10];
   }
-  else if (keyCode === UP_ARROW && opt == true) {
+  else if (keyCode === UP_ARROW && opt === true) {
     if (tile < 38) {
       tile++;
     } else {
       tile = 0;
     }
     changeTile(tile);
-  } else if (keyCode === DOWN_ARROW && opt == true) {
+  } else if (keyCode === DOWN_ARROW && opt === true) {
     if (tile > 0) {
       tile--;
     } else {
       tile = 38;
     }
     changeTile(tile);
-  } else if (keyCode === LEFT_ARROW && opt == true) {
+  } else if (keyCode === LEFT_ARROW && opt === true) {
     if (tile > 0) {
       tile--;
     } else {
       tile = 38;
     }
     changeTile(tile);
-  } else if (keyCode === RIGHT_ARROW && opt == true) {
+  } else if (keyCode === RIGHT_ARROW && opt === true) {
     if (tile < 38) {
       tile++;
     } else {
       tile = 0;
     }
     changeTile(tile);
-  } else if (keyCode === 32 && opt == true) {
+  } else if (keyCode === 32 && opt === true) {
     switchOpt();
     grid[cursor.x][cursor.y] = grid[11][11];
   } 
@@ -346,7 +346,7 @@ let y_start = 0;
 let x_start2 = 0;
 let y_start2 = 0;
 
-function draw_grid() {
+export function draw_grid() {
   x_start = width/2 - TILE_WIDTH/2;
   y_start = 50;
   for (let i = 0; i < GRID_SIZE; i++) {
@@ -377,21 +377,25 @@ function draw_grid() {
 //   }
 // }
 
-function draw_tile(img, x, y) {
-  let x_screen = x_start + (x - y) * TILE_WIDTH/2;
-  let y_screen = y_start + (x + y) * TILE_HEIGHT/2;
-  let z_offset = MAX_HEIGHT - img.height;
-  image(img, x_screen, y_screen + z_offset);
-}
+$(document).ready(function(){
+    function draw_tile(img, x, y) {
+      let x_screen = x_start + (x - y) * TILE_WIDTH/2;
+      let y_screen = y_start + (x + y) * TILE_HEIGHT/2;
+      let z_offset = MAX_HEIGHT - img.height;
+      image(img, x_screen, y_screen + z_offset);
+    }
+    $("#img-clck").click(draw_tile);
+  }
+)
 
-function draw_tile2(img, x, y) {
+export function draw_tile2(img, x, y) {
   let x_screen = x_start2 + (x - y) * TILE_WIDTH/2;
   let y_screen = y_start2 + (x + y) * TILE_HEIGHT/2;
   let z_offset = MAX_HEIGHT - img.height;
   image(img, x_screen, y_screen + z_offset);
 }
 
-function setup() {
+export function setup() {
   createCanvas(windowWidth, windowHeight);
   for (let i = 0; i <= 38; i++) {
     tile_images.push(loadImage("./tiles/tile-" + i + ".png"));

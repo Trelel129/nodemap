@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import * as game from './game.js';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         >
           Learn React
         </a>
-        <button onClick="draw_tile">Click Me</button>
+        <button id="img-clck">Click Me</button>
       </header>
     </div>
   );
